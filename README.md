@@ -3,7 +3,7 @@ auth2
 
 Pure python 3 script for OpenSSH -- use with ForceCommand line of /etc/sshd_config for 2 step authentication
 
-This script was inspired from articles when I read Linux Journal's article on YubiKey.
+This script was inspired from articles when I read Linux Journal's article on YubiKey:
 http://www.linuxjournal.com/magazine/yubikey-one-time-password-authentication
 
 and digitalocean article : 

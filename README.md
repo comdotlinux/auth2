@@ -36,7 +36,7 @@ Also I would like to add multiuser capability and encrypting stored SECRET someh
 Instructions for usage are same as on auth2 website:
 1. Install libpam-google-authenticator & python3
 
-2. On your Android Phone install google-authenticator app (if you have enabled 2 step authentication for Google you might already have it)
+2. On your Android / IOS / Blackberry Phone / Tablet install google-authenticator app (if you have enabled 2 step authentication for Google you might already have it)
 
 3. Run google-authenticator with the user that will be used to login.
 

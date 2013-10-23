@@ -1,6 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
+import os
 import time
 import subprocess
 import base64
@@ -12,36 +13,6 @@ import logging
 import ConfigParser
 import getpass
 
-FORMAT = '%(asctime)-15s %(message)s '
-sProperties = 'ssh.properties'
-curTime = time.strftime("%d-%m-%Y.%H%MHrs")
-
-
-def get_hotp_token(secret, time_window, key_len):
-    key = base64.b32decode(secret)
-    msg = struct.pack(">Q", time_window)
-    h = hmac.new(key, msg, hashlib.sha1).digest()
-    o = ord(h[19]) & 15
-    otp = (struct.unpack(">I", h[o:o + 4])[0] & 0x7fffffff)
-    return otp % int(math.pow(10, key_len))
-
-
-def test_user_pin(secret, time_window, key_len, user_pin):
-#    time_window = int(time.time())/30
-
-    for offset in [0, -1, -2, 1]:
-        cur_pin = get_hotp_token(secret, time_window + offset, key_len)
-        if str(cur_pin) == str(user_pin):
-            return True
-    return False
-
-# This is for demonstration purpose. You should manage
-# the keys somewhere else possibly one key per user
-#secret = ""
-#key_len = 6
-#timeWindow = 30
-
-try:
         cf = ConfigParser.ConfigParser()
         cf.read(sProperties)
 
